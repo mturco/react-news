@@ -1,0 +1,61 @@
+.SelectInput {
+  position: relative;
+  display: inline-block;
+}
+
+.SelectInput-label {
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid #508ef5;
+}
+
+.SelectInput-caret {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+.SelectInput-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  display: none;
+  max-width: 300px;
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.SelectInput-dropdown::before {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  border-bottom: 6px solid #fff;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  content: '';
+}
+
+.SelectInput-dropdownContainer {
+  max-height: 300px;
+  padding: 5px 0;
+  overflow-y: auto;
+}
+
+.SelectInput.is-open .SelectInput-dropdown {
+  display: block;
+}
+
+.SelectInput-searchContainer {
+  margin: 5px 10px 10px;
+}
+
+.SelectInput-searchBox {
+  width: 100%;
+  min-width: 225px;
+}
