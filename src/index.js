@@ -1,3 +1,6 @@
+// Polyfills
+import 'core-js/fn/array/find';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
