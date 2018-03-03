@@ -11,3 +11,8 @@
 .App-title {
   margin-top: 0;
 }
+
+.App-credits {
+  margin-top: 60px;
+  color: hsl(0, 0%, 55%);
+}

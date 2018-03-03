@@ -23,6 +23,8 @@ class App extends Component {
         </header>
 
         <ArticleList source={this.state.source} sortBy={this.state.sortBy}/>
+
+        <p className="App-credits">Powered by NewsAPI.org.</p>
       </div>
     );
   }
