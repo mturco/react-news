@@ -1,0 +1,20 @@
+.Button {
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #508ef5;
+  border: 0;
+  font-size: 0.8125em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.Button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Button:focus {
+  outline: 1px dotted rgba(0, 0, 0, 0.5);
+}
