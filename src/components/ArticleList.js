@@ -7,10 +7,12 @@ import Article from './Article';
 class ArticleList extends Component {
   static propTypes = {
     source: PropTypes.string,
+    sortBy: PropTypes.string,
   };
 
   static defaultProps = {
     source: 'google-news', // just so we have something to show initially
+    sortBy: 'publishedAt',
   };
 
   constructor(props) {
@@ -20,9 +22,10 @@ class ArticleList extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillReceiveProps (nextProps) {
     NewsApi.getArticles({
-      sources: this.props.source,
+      sources: nextProps.source || ArticleList.defaultProps.source,
+      sortBy: nextProps.sortBy || ArticleList.defaultProps.sortBy,
     })
       .then(response => response.json())
       .then(result => {
