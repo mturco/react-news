@@ -1,5 +1,13 @@
 .App {
   max-width: 980px;
-  padding: 20px;
+  padding: 60px 20px;
   margin: 0 auto;
+}
+
+.App-header {
+  margin-bottom: 40px;
+}
+
+.App-title {
+  margin-top: 0;
 }
