@@ -5,7 +5,7 @@ import { getSources } from '../NewsApi';
 import SelectInput from './SelectInput';
 
 const sortByOptions = [
-  { label: 'most popularity first', value: 'popularity' },
+  { label: 'most popular first', value: 'popularity' },
   { label: 'most recent first', value: 'publishedAt' },
 ];
 
