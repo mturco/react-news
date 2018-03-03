@@ -1,0 +1,88 @@
+.Article {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.25s ease-in-out;
+}
+
+.Article:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.Article-image {
+  flex: 0 0 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.Article-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.Article-title {
+  margin: 0 0 0.5em;
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.Article-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Article-link:hover {
+  text-decoration: underline;
+}
+
+.Article-title,
+.Article-source,
+.Article-publishedAt {
+  flex: 0 0 auto;
+}
+
+.Article-publishedAt,
+.Article-desc,
+.Article-source {
+  font-size: 0.8125em;
+}
+
+.Article-desc {
+  position: relative;
+  flex: 1 1 0%;
+  margin: 0.75em 0;
+  overflow: hidden;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+}
+
+.Article-desc::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3em;
+  background-image: linear-gradient(to bottom, transparent, #fff 90%);
+  content: '';
+  pointer-events: none;
+}
+
+.Article-publishedAt,
+.Article-source {
+  color: hsl(0, 0%, 55%);
+}
+
+.Article-publishedAt {
+  margin: 0;
+}
+
+.Article-source {
+  margin-top: auto;
+  margin-bottom: 0;
+}

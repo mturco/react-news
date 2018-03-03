@@ -1,0 +1,12 @@
+.ArticleList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -10px;
+}
+
+@media (min-width: 660px) {
+  .ArticleList {
+    justify-content: flex-start;
+  }
+}
