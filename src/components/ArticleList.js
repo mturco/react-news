@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './ArticleList.css';
 import * as NewsApi from '../NewsApi';
 import Article from './Article';
+import Button from './Button';
 
 class ArticleList extends Component {
   static propTypes = {
@@ -19,24 +20,18 @@ class ArticleList extends Component {
     super(props);
     this.state = {
       articles: [],
+      page: 1,
     };
+
+    // bind this for handlers
+    this.handleViewMore = this.handleViewMore.bind(this);
   }
 
-  componentWillReceiveProps (nextProps) {
-    NewsApi.getArticles({
-      sources: nextProps.source || ArticleList.defaultProps.source,
-      sortBy: nextProps.sortBy || ArticleList.defaultProps.sortBy,
-    })
-      .then(response => response.json())
-      .then(result => {
-        const { status, code, message, articles } = result;
-        if (status === 'ok') {
-          this.setState({ articles });
-        } else {
-          console.error({ status, code, message });
-        }
-      })
-      .catch(console.error);
+  componentWillReceiveProps(nextProps) {
+    this.loadArticles({
+      sources: nextProps.source,
+      sortBy: nextProps.sortBy,
+    }).then(articles => this.setState({ articles }));
   }
 
   render() {
@@ -45,9 +40,38 @@ class ArticleList extends Component {
     );
     return (
       <div className="ArticleList">
-        {articles}
+        <div className="ArticleList-container">
+          {articles}
+        </div>
+        <Button className="ArticleList-moreBtn" onClick={this.handleViewMore}>View More</Button>
       </div>
     );
+  }
+
+  loadArticles(params) {
+    return NewsApi.getArticles(params)
+      .then(response => response.json())
+      .then(result => {
+        const { status, code, message, articles } = result;
+        if (status === 'ok') {
+          return articles;
+        } else {
+          console.error({ status, code, message });
+          return [];
+        }
+      })
+      .catch(console.error);
+  }
+
+  handleViewMore() {
+    const { source, sortBy } = this.props;
+    this.loadArticles({ sources: source, sortBy, page: this.state.page + 1 })
+      .then(articles => {
+        this.setState({
+          articles: [...this.state.articles, ...articles],
+          page: this.state.page + 1,
+        });
+      });
   }
 }
 

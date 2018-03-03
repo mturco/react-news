@@ -1,4 +1,4 @@
-.ArticleList {
+.ArticleList-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -6,7 +6,12 @@
 }
 
 @media (min-width: 660px) {
-  .ArticleList {
+  .ArticleList-container {
     justify-content: flex-start;
   }
+}
+
+.ArticleList-moreBtn {
+  display: block;
+  margin: 20px auto 0;
 }
